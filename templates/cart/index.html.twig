@@ -30,19 +30,19 @@ Retrouvez l'ensemble des produits que vous avez ajouté à votre panier.
         <small>{{ product.product.subtitle }}</small>
         </td>
         <td>
-        <a href="">
-          <img src="{{ asset(('assets/images/moin.png'))}}" height="12px" alt="Moin">
+        <a href="{{ path('decrease_to_cart', {'id' : product.product.id }) }}">
+          <img src="{{ asset(('assets/images/moin.png'))}}" height="12px" alt="Retiré un produit du panier">
         </a>
         x {{ product.quantity }}
-        <a href="">
-          <img src="{{ asset(('assets/images/plus.png'))}}" height="12px" alt="Plus">
+        <a href="{{ path('add_to_cart', {'id' : product.product.id }) }}">
+          <img src="{{ asset(('assets/images/plus.png'))}}" height="12px" alt="Ajouter un produit">
         </a>
         </td>
         <td>{{ (product.product.price / 100)|number_format(2, ',','.') }} €</td>
         <td>{{ ((product.product.price * product.quantity) / 100)|number_format(2, ',','.') }} €</td>
         <td>
           <a href="{{ path('delete_to_cart', {'id' : product.product.id } )}}">
-            <img src="{{ asset(('assets/images/delete.png'))}}" height="20px" alt="supprimer mon produit">
+            <img src="{{ asset(('assets/images/delete.png'))}}" height="20px" alt="Supprimer mon produit">
           </a>
         </td>
       </tr>
