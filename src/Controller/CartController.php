@@ -48,14 +48,14 @@ class CartController extends AbstractController
     }
 
     /**
-     * @Route("/cart/remove", name="remove_my_cart")
+     * @Route("/cart/delete/{id}", name="delete_to_cart")
      */
 
-    public function remove(Cart $cart)
+    public function delete(Cart $cart, $id)
     {
-        $cart->remove();
+        $cart->delete($id);
 
-        return $this->redirectToRoute('products');
+        return $this->redirectToRoute('cart');
     }
 
 }
