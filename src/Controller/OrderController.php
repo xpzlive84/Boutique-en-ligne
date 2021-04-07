@@ -79,6 +79,7 @@ class OrderController extends AbstractController
 
             $this->entityManager->persist($order);
 
+
             // ENREGISTRER MES PRODUITS OrderDetails()
             foreach ($cart->getFull() as $product)
             {
@@ -89,14 +90,15 @@ class OrderController extends AbstractController
                 $orderDetails->setPrice($product['product']->getPrice());
                 $orderDetails->setTotal($product['product']->getPrice() * $product['quantity']);
                 $this->entityManager->persist($orderDetails);
+
             }
 
-            $this->entityManager->flush();
-            
+            //$this->entityManager->flush();
+ 
             return $this->render('order/add.html.twig', [
                 'cart' => $cart->getFull(),
                 'carrier' => $carriers,
-                'delivery' => $delivery_content
+                'delivery' => $delivery_content,
             ]);
         }
         return $this->redirectToRoute('cart');
