@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Confimation de ma commande - La Boutique!{% endblock %}
+
+{% block content %}
+    <h2>Confirmation de ma commande</h2>
+    <p>Bonjour <strong class="text-info">{{ order.user.firstname }} {{ order.user.lastname }}</strong>,<br><br>
+    Nous vous remercions pour votre commande n°<strong class="text-danger">{{ order.reference }}</strong><br>
+    Une confirmation vient de vous etre envoyée par email à l'adresse <strong class="text-info">{{ order.user.email }}</strong>.
+    <hr>
+    Votre commande sera livrée par <strong class="text-warning">{{ order.carrierName }}</strong> à l'addresse suivante : <br>
+    {{ order.delivery|raw }}
+    <hr>
+    Pour suivre votre commande, rendez-vous dans votre <a href="{{ path('account') }}">compte</a>.
+    </p>
+{% endblock %}
