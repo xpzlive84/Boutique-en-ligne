@@ -3,7 +3,7 @@
 {% block title %}Erreur de paiement - La Boutique!{% endblock %}
 
 {% block content %}
-    <h2>Erreur de paiement</h2>
+    <h2 class="text-danger">Erreur de paiement</h2>
     <p>Bonjour <strong class="text-info">{{ order.user.firstname }} {{ order.user.lastname }}</strong>,<br><br>
     Il semblerait que votre paiement est échoué pour votre commande n°<strong class="text-danger">{{ order.reference }}</strong><br>
     Une confirmation d'erreur vien de vous etre envoyée par email à l'adresse <strong class="text-info">{{ order.user.email }}</strong>.
